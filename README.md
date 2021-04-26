@@ -1,4 +1,4 @@
-# Capstone-3 
+# Can you predict the aritsts based on their painting style?
 
 1. Proposal 1: Style transfer with GANs (https://www.kaggle.com/binukandagedon/paintings-from-10-different-popular-artists, https://www.kaggle.com/puneet6060/intel-image-classification)
 2. Proposal 2: Building a chatbot

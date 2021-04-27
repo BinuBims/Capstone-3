@@ -17,7 +17,7 @@ Since the data set is not big enough to train a CNN from scratch, I knew straigh
 My intention was to get a somewhat working model which I decided to freeze every single layer in the pretrained model and add three more dense layers of mine, one with 512, other with 16 nodes and final output layer toward the end of pretrained model. Below is the result.
 <p align="center">
   <img src="data/readme/f1.png">
-  <img src="data/readme/f2.png">
+  <img src="data/readme/f22.png">
 </p>
 As you can see trainable parameters are down to 51 millions. I ran my transfer learning model for about 30 epochs and validation accuracy wind up being around 55. However, you can still see that my model is still learning. Is it worth let it run for another few epochs and see how it does? well, I decided to move on to fine tuning whch I will talk about it next section.
 

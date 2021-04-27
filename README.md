@@ -34,7 +34,7 @@ Without wasting time and computing power I started fine tuning my model which di
 I have trained this model about 30 epochs and result has shown in the above graph. I would say this is a good start but my fine tuning did not go as planed. Take a closer look at the graph, validation accuracy kind of plateaued out at 60% after ceratain number of epochs. We can regularize our model to prevent overfitting and let it run few epochs or we can unfreezed more layers of the pretrained model see how well it does.
 
 ### Surprise fine tuning.
-I decided to play with unfreezing more layers. This time I had the full pretrained model but without the classification layer at the end. I set all the other layer unfreezed or trainable, and ran my model for a couple of 20 epochs. The results were amazing.
+I decided to play with unfreezing more layers. This time I had the full pretrained model but without the classification layer at the top. I set all the other layers unfreezed or trainable, and ran my model for a couple of 20 epochs. The results were amazing.
 <p align="center">
   <img src="data/readme/t1.png">
 </p>
@@ -43,8 +43,10 @@ As you can see in the graph, my model was able to reach 85% validation accuracy 
   <img src="data/readme/t3.png">
 </p>
 
-
-
 ### conclusion:
+Since I did not have enough data to deal with, it is good practise to use a pretrained model to save time and computational power. Not having classification layer at the top and making all the layers trainable works really well in this situation. I also made sure to reduce learning rate, and made my model pay more attention to under-represented classes. So, I can achieve more efficient result at the end.
+<p align="center">
+  <img src="data/readme/c.png">
+</p>
 
 

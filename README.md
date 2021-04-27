@@ -1,7 +1,7 @@
 # CAN YOU PREDICT THE ARTISTS BASED ON THEIR PAINTING STYLE?
 
 <p align="center">
-<img src="data/readme/header.jpg" />
+<img src="data/readme/head2.jpg" />
 </p>
 
 ## Introduction

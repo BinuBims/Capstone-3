@@ -24,10 +24,13 @@ My intention was to get a somewhat working model which I decided to freeze every
 As you can see trainable parameters are down to 51 millions. I ran my transfer learning model for about 30 epochs and validation accuracy wind up being around 55. However, you can still see that my model is still learning. Is it worth let it run for another few epochs and see how it does? well, I decided to move on to fine tuning whch I will talk about it next section.
 
 ### Fine tuning
-  <img src="data/Images/2nd model.png" width="400">
-  <img src="data/Images/2ndgraph.png" height="400">
+Without wasting time and computing power I started fine tuning my model which did not go as I planed. This time, I only freezed first 50 layers in the pretrained model. However, it does not come without a cost. Model can easily overfit as I am trying to train a much larger model and want to readapt the pretrained weights. Any solutions? I have reduced the learing rate from 0.001 to 0.0001
+<p align="center">
+  <img src="data/readme/s1.png">
 </p>
-
+<p align="center">
+  <img src="data/readme/s2.png">
+</p>
 I have reduced the learning rate from .001 to .0001, and included 0.001 of L2 normalization to the second from the last dense layer. I also add 2 more dense layers to make the model more flexible. After 30 epochs, I kind of end up getting the same result as validation accuracy wonders around 70's. Final test accuracy endup being 73. I have seen just a little progress in the second model, but I was not really happy with results I am getting.
 
 ### conclusion:

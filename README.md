@@ -21,7 +21,7 @@ My intention was to get a somewhat working model which I decided to freeze every
 <p align="center">
   <img src="data/readme/f1.png">
 </p>
-As you can see trainable parameters are down to 51 millions. I ran my transfer learning model for about 30 epochs and validation accuracy wind up being around 55. However, you can still see that my model is still learning. Is it worth let it run for another few epochs and see how it does? well, I decided to move on to fine tuning whch I will talk about it next section.
+As you can see trainable parameters are down to 51 millions. I ran my transfer learning model for about 30 epochs and validation accuracy wind up being around 55%. However, you can still see that my model is still learning. Is it worth let it run for another few epochs and see how it does? well, I decided to move on to fine tuning whch I will talk about it next section.
 
 ### Fine tuning
 Without wasting time and computing power I started fine tuning my model which did not go as I planed. This time, I only freezed first 50 layers in the pretrained model. As you can see in below picture, trainable parameters are insanely high, and it does not come without a cost. Model can easily overfit as I am trying to train a much larger model and want to readapt the pretrained weights. Any solutions? I have reduced the learing rate from 0.001 to 0.0001
@@ -31,24 +31,19 @@ Without wasting time and computing power I started fine tuning my model which di
 <p align="center">
   <img src="data/readme/s2.png">
 </p>
-I have trained this model about 30 epochs and result has shown in the above graph. I would say this is a good start but my fine tuning did not go as planed. Take a closer look at the graph, validation accuracy kind of plateaued out after ceratain number of epochs. We can regularize our model to prevent overfitting and let it run few epochs or we can unfreezed more layers of the pretrained model see how well it does.
+I have trained this model about 30 epochs and result has shown in the above graph. I would say this is a good start but my fine tuning did not go as planed. Take a closer look at the graph, validation accuracy kind of plateaued out at 60% after ceratain number of epochs. We can regularize our model to prevent overfitting and let it run few epochs or we can unfreezed more layers of the pretrained model see how well it does.
 
 ### Surprise fine tuning.
 I decided to play with unfreezing more layers. This time I had the full pretrained model but without the classification layer at the end. I set all the other layer unfreezed or trainable, and ran my model for a couple of 20 epochs. The results were amazing.
 <p align="center">
   <img src="data/readme/t1.png">
 </p>
+As you can see in the graph, my model was able to reach 85% validation accuracy just under 20 epochs. There are some big fluctuations in validation loss, and it is important to regulate those behaviours by lowering the learning rate when it gets to that point.I have run the model for a few more epochs, but this is as  good as it got.
 <p align="center">
   <img src="data/readme/t2.png">
 </p>
-As you can see in the graph, my model was able to reach 85% alidation accuracy just under 20 epochs. I have run the model for a few more epochs, but this is as  good as it gets
 
 
 
 ### conclusion:
-It seems like my model start overfitting after a certain number of epochs. I have regularized my model to be more flexible, but have not seen any progress. I was looking at what I can do next. First things, that came to mind was that I do not have enough data to deal with in the training dataset(100 images per species). Unfortunately, there was nothing I could do about that. Then, I went back to see my actual data, and found out that the data is not always about a picture of one monkey. Some pictures are about bunch of monkeys. Then, I start isolating pictures of one monkey.
 
-
-
- BatchNormalization layer will run in inference mode, and will not update its mean and variance statistics.
-As you are training a much larger model and want to readapt the pretrained weights, it is important to use a lower learning rate at this stage. Otherwise, your model could overfit very quickl

@@ -40,7 +40,7 @@ I decided to play with unfreezing more layers. This time I had the full pretrain
 </p>
 As you can see in the graph, my model was able to reach 85% validation accuracy just under 20 epochs. There are some big fluctuations in validation loss, and it is important to regulate those behaviours by lowering the learning rate when it gets to that point.I have run the model for a few more epochs, but this is as  good as it got.
 <p align="center">
-  <img src="data/readme/t2.png">
+  <img src="data/readme/t3.png">
 </p>
 
 

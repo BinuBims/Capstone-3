@@ -14,7 +14,7 @@ The data set, I have fed into my convolutional neural network(CNN) came from kag
 Since the data set is not big enough to train a CNN from scratch, I knew straight away that I had to do transfer learning in order to make better predictions. For some reason, I decided to go with ResNet50 pretrained model. However, I have tried other pretrained models like VGG-16 and Inceptionv3, but they all endup being as good as ResNet50. After a couple of tries, I came up with a somewhat working model which I will talk about it in below section. 
 
 ### straight into transfer learning and my first working model
-My intention was to get a somewhat working model which I decided to freeze every single layer in the pretrained model and add three more dense layers of mine, one with 512, other with 16 nodes and final output layer toward the end of pretrained model. Below is the result.
+My intention was to get a somewhat working model which I decided to freeze every single layer in the pretrained model and add three more dense layers of mine, one with 512, other with 16 nodes and final output layer toward the end of pretrained model. The data is not very well spread out. So, it is important to make your model pay more attention to samples from an under-represented class. Result has shown in below graph.
 <p align="center">
   <img src="data/readme/f22.png">
 </p>
@@ -24,14 +24,18 @@ My intention was to get a somewhat working model which I decided to freeze every
 As you can see trainable parameters are down to 51 millions. I ran my transfer learning model for about 30 epochs and validation accuracy wind up being around 55. However, you can still see that my model is still learning. Is it worth let it run for another few epochs and see how it does? well, I decided to move on to fine tuning whch I will talk about it next section.
 
 ### Fine tuning
-Without wasting time and computing power I started fine tuning my model which did not go as I planed. This time, I only freezed first 50 layers in the pretrained model. However, it does not come without a cost. Model can easily overfit as I am trying to train a much larger model and want to readapt the pretrained weights. Any solutions? I have reduced the learing rate from 0.001 to 0.0001
+Without wasting time and computing power I started fine tuning my model which did not go as I planed. This time, I only freezed first 50 layers in the pretrained model. As you can see in below picture, trainable parameters are insanely high, and it does not come without a cost. Model can easily overfit as I am trying to train a much larger model and want to readapt the pretrained weights. Any solutions? I have reduced the learing rate from 0.001 to 0.0001
 <p align="center">
   <img src="data/readme/s1.png">
 </p>
 <p align="center">
   <img src="data/readme/s2.png">
 </p>
-I have reduced the learning rate from .001 to .0001, and included 0.001 of L2 normalization to the second from the last dense layer. I also add 2 more dense layers to make the model more flexible. After 30 epochs, I kind of end up getting the same result as validation accuracy wonders around 70's. Final test accuracy endup being 73. I have seen just a little progress in the second model, but I was not really happy with results I am getting.
+I have trained this model about 30 epochs and result has shown in the above graph. I would say this is a good start but my fine tuning did not go as planed. Take a closer look at the graph, validation accuracy kind of plateaued out after ceratain number of epochs. We can regularize our model to prevent overfitting and let it run few epochs or we can unfreezed more layers of the pretrained model see how well it does.
+
+### Surprise fine tuning.
+
+
 
 ### conclusion:
 It seems like my model start overfitting after a certain number of epochs. I have regularized my model to be more flexible, but have not seen any progress. I was looking at what I can do next. First things, that came to mind was that I do not have enough data to deal with in the training dataset(100 images per species). Unfortunately, there was nothing I could do about that. Then, I went back to see my actual data, and found out that the data is not always about a picture of one monkey. Some pictures are about bunch of monkeys. Then, I start isolating pictures of one monkey.

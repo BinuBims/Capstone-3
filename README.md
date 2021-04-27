@@ -24,7 +24,7 @@ My intention was to get a somewhat working model which I decided to freeze every
 As you can see trainable parameters are down to 51 millions. I ran my transfer learning model for about 30 epochs and validation accuracy wind up being around 55%. However, you can still see that my model is still learning. Is it worth let it run for another few epochs and see how it does? well, I decided to move on to fine tuning whch I will talk about it next section.
 
 ### Fine tuning
-Without wasting time and computing power I started fine tuning my model which did not go as I planed. This time, I only freezed first 50 layers in the pretrained model. As you can see in below picture, trainable parameters are insanely high, and it does not come without a cost. Model can easily overfit as I am trying to train a much larger model and want to readapt the pretrained weights. Any solutions? I have reduced the learing rate from 0.001 to 0.0001
+Without wasting time and computing power I started fine tuning my model which did not go as I planed. This time, I only freezed first 40 layers in the pretrained model. As you can see in below picture, trainable parameters are insanely high, and it does not come without a cost. Model can easily overfit as I am trying to train a much larger model and want to readapt the pretrained weights. Any solutions? I have reduced the learing rate from 0.001 to 0.0001
 <p align="center">
   <img src="data/readme/s1.png">
 </p>

@@ -29,3 +29,4 @@ It seems like my model start overfitting after a certain number of epochs. I hav
 
 
  BatchNormalization layer will run in inference mode, and will not update its mean and variance statistics.
+As you are training a much larger model and want to readapt the pretrained weights, it is important to use a lower learning rate at this stage. Otherwise, your model could overfit very quickl

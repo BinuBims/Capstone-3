@@ -16,8 +16,8 @@ Since the data set is not big enough to train a CNN from scratch, I knew straigh
 ### straight into transfer learning and my first working model
 My intention was to get a somewhat working model which I decided to freeze every single layer in the pretrained model and add three more dense layers of mine, one with 512, other with 16 nodes and final output layer toward the end of pretrained model. Below is the result
 <p align="center">
-  <img src="data/readme/f1.png" width="400">
-  <img src="data/readme/f2.png" height="400">
+  <img src="data/readme/f1.png">
+  <img src="data/readme/f2.png">
 </p>
 
 
